@@ -1,50 +1,3 @@
-let firstNum;
-let secondNum;
-
-const display = document.querySelector('.display');
-const numBtns = document.querySelectorAll('#num');
-const clearBtn = document.querySelector('.clear');
-
-const add = function (a, b) {
-	return a + b;
-};
-
-const subtract = function (a, b) {
-	return a - b;
-};
-
-const multiply = function (a, b) {
-	return a * b;
-};
-
-const divide = function (a, b) {
-	if (b === 0) {
-		alert('Cannot divide by 0.');
-		return 'Error';
-	}
-	return a / b;
-};
-
-const operate = function (operation, a, b) {
-	return operation(a, b);
-};
-
-const updateDisplay = function (val) {
-	display.textContent += val;
-};
-
-const clearDisplay = function () {
-	display.textContent = 0;
-};
-
-numBtns.forEach((num) => {
-	num.addEventListener('click', () => {
-		updateDisplay(num.innerText);
-	});
-});
-
-clearBtn.addEventListener('click', clearDisplay);
-
 class Calculator {
 	constructor(equation, solution) {
 		this.equation = equation;
@@ -149,3 +102,11 @@ class Calculator {
 		}
 	}
 }
+
+const equationScrn = document.querySelector('.equation');
+const solutionScrn = document.querySelector('.solution');
+const numBtns = document.querySelectorAll('#num');
+const opBtns = document.querySelectorAll('#op');
+const equalBtn = document.querySelector('.equal');
+const clearBtn = document.querySelector('.clear');
+const deleteBtn = document.querySelector('.delete');
