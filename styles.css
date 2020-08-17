@@ -1,0 +1,40 @@
+.calculator {
+	margin: auto;
+	width: 375px;
+	height: 450px;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.display {
+	margin: 20px auto;
+	height: 50px;
+	width: 90%;
+	font-size: 48px;
+	border: 1px solid black;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: space-between;
+	justify-content: space-evenly;
+	width: 90%;
+	height: 75%;
+	margin: 15px auto;
+}
+
+.button-row {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.button-row button {
+	width: 20%;
+	height: 40px;
+}
+
+.clear {
+	height: 40px;
+}
