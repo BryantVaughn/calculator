@@ -7,9 +7,10 @@ class Calculator {
 	}
 
 	clearMemory() {
-		this.current = '';
+		this.current = '0';
 		this.previous = '';
 		this.opperation = undefined;
+		this.updateDisplay();
 	}
 
 	backspace() {
@@ -47,19 +48,19 @@ class Calculator {
 
 		switch (this.operation) {
 			case '+':
-				opResult = parseFloat(add(previous, current).toFixed(4));
+				opResult = parseFloat(this.add(previous, current).toFixed(4));
 				break;
 			case '-':
-				opResult = parseFloat(subtract(previous, current).toFixed(4));
+				opResult = parseFloat(this.subtract(previous, current).toFixed(4));
 				break;
 			case 'x':
-				opResult = parseFloat(multiply(previous, current).toFixed(4));
+				opResult = parseFloat(this.multiply(previous, current).toFixed(4));
 				break;
 			case '÷':
-				opResult = parseFloat(divide(previous, current).toFixed(4));
+				opResult = parseFloat(this.divide(previous, current).toFixed(4));
 				break;
 			case '%':
-				opResult = parseFloat(mod(previous, current).toFixed(4));
+				opResult = parseFloat(this.mod(previous, current).toFixed(4));
 				break;
 			default:
 				return;
@@ -109,4 +110,36 @@ const numBtns = document.querySelectorAll('#num');
 const opBtns = document.querySelectorAll('#op');
 const equalBtn = document.querySelector('.equal');
 const clearBtn = document.querySelector('.clear');
-const deleteBtn = document.querySelector('.delete');
+const backspaceBtn = document.querySelector('.delete');
+
+const calc = new Calculator(equationScrn, solutionScrn);
+
+numBtns.forEach((num) => {
+	num.addEventListener('click', () => {
+		calc.updateNumber(num.textContent);
+		calc.updateDisplay();
+	});
+});
+
+opBtns.forEach((op) => {
+	op.addEventListener('click', () => {
+		calc.selectOperation(op.textContent);
+		calc.updateDisplay();
+	});
+});
+
+backspaceBtn.addEventListener('click', () => {
+	calc.backspace();
+	calc.updateDisplay();
+});
+
+equalBtn.addEventListener('click', () => {
+	calc.operate();
+	calc.updateDisplay();
+	calc.reset = true;
+});
+
+clearBtn.addEventListener('click', () => {
+	calc.clearMemory();
+	calc.updateDisplay();
+});
