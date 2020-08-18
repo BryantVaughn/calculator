@@ -143,3 +143,37 @@ clearBtn.addEventListener('click', () => {
 	calc.clearMemory();
 	calc.updateDisplay();
 });
+
+window.addEventListener('keydown', (e) => {
+	const code = e.keyCode;
+	switch (true) {
+		case (code >= 48 && code <= 57) ||
+			(code >= 96 && code <= 105) ||
+			code === 108 ||
+			code === 110 ||
+			code === 190 ||
+			code === 194:
+			calc.updateNumber(e.key);
+			break;
+		case code === 106 ||
+			code === 107 ||
+			code === 109 ||
+			code === 111 ||
+			code === 187:
+			calc.selectOperation(e.key);
+			break;
+		case code === 13 || code === 61:
+			calc.operate();
+			calc.reset = true;
+			break;
+		case code === 8 || code === 46:
+			calc.backspace();
+			break;
+		case code === 27:
+			calc.clearMemory();
+			break;
+		default:
+			return;
+	}
+	calc.updateDisplay();
+});
