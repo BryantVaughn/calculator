@@ -3,47 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Rajdhani:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
   <title>Calculator</title>
 </head>
 <body>
-  <div class="calculator">
-    <div class="display">
-      <div class="equation"></div>
-      <div class="solution"></div>
-    </div>
-    <div class="buttons">
-      <div class="button-row">
-        <button class="clear">AC</button>
-        <button class="delete">&#9003</button>
-        <button id="op">%</button>
-        <button id="op">÷</button>
-      </div>
-      <div class="button-row">
-        <button id="num">7</button>
-        <button id="num">8</button>
-        <button id="num">9</button>
-        <button id="op">X</button>
-      </div>
-      <div class="button-row">
-        <button id="num">4</button>
-        <button id="num">5</button>
-        <button id="num">6</button>
-        <button id="op">+</button>
-      </div>
-      <div class="button-row">
-        <button id="num">1</button>
-        <button id="num">2</button>
-        <button id="num">3</button>
-        <button id="op">-</button>
-      </div>
-      <div class="button-row">
-        <button class="double" id="num">0</button>
-        <button id="num">.</button>
-        <button class="equal">=</button>
+  <div id="main">
+    <h1>Calculator</h1>
+    <div id="calculator">
+      <div id="calc-grid">
+        <div id="scrn">
+          <div id="equation"></div>
+          <div id="solution"></div>
+        </div>
+        <button data-clear class="action">AC</button>
+        <button data-delete class="action">DEL</button>
+        <button class="op">%</button>
+        <button class="op">÷</button>
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button class="op">x</button>
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        <button class="op">-</button>
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button class="op">+</button>
+        <button data-number class="span-two">0</button>
+        <button data-number>.</button>
+        <button data-equals class="action">=</button>
       </div>
     </div>
   </div>
-  <script src="index.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
